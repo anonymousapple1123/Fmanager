@@ -1,0 +1,5 @@
+2026-02-21 12:59:55,261 - ERROR - Error in Input<control_panel()>
+Traceback (most recent call last):
+  File "/Users/ayushkumar/Code/Fmanager/main.py", line 20, in control_panel
+    choice = int(input(">>> "))
+ValueError: invalid literal for int() with base 10: 'sd'
