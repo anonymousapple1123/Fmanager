@@ -1,13 +1,25 @@
 import logging
 import os
+import sys
+from pathlib import Path
 
 logger = logging.getLogger()
+
+
+def validate_directory(path_str):
+    path = Path(path_str)
+    if not path.exists() or not path.is_dir():
+        print(f"❌ Invalid directory: {path}")
+        sys.exit(1)
+    return path
 
 
 def rename_files(substring_to_remove):
     files_renamed = 0
     total_files = 0
-    current_directory = os.getcwd()
+    current_directory = input("Directory to do renaming [default: cwd]:").strip()
+    validate_directory(current_directory)
+
     for filename in os.listdir(current_directory):
         total_files += 1
         if substring_to_remove in filename:

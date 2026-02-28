@@ -26,7 +26,7 @@ def two_way_sync(dir1, dir2):
     dir1 = validate_directory(dir1)
     dir2 = validate_directory(dir2)
 
-    print("\n🔎 Scanning directories...")
+    print("\nScanning directories...")
 
     dir1_all = [f for f in dir1.iterdir() if f.is_file()]
     dir2_all = [f for f in dir2.iterdir() if f.is_file()]
@@ -71,7 +71,7 @@ def two_way_sync(dir1, dir2):
     print("==========================================")
 
     if not to_copy_1_to_2 and not to_copy_2_to_1:
-        print("\n✅ Both folders are already in sync.")
+        print("\n Both folders are already in sync.")
         return
 
     confirm = input("\nProceed with two-way sync? (y/n): ").strip().lower()
@@ -84,25 +84,25 @@ def two_way_sync(dir1, dir2):
     # Copy dir1 → dir2
     for name in to_copy_1_to_2:
         try:
-            print(f"📄 {name}  (Folder1 ➜ Folder2)")
+            print(f" {name}  (Folder1 ➜ Folder2)")
             shutil.copy2(dir1 / name, dir2 / name)
             copied_count += 1
         except Exception as e:
-            print(f"⚠️ Failed copying {name}: {e}")
+            print(f"[ ERROR ]: Failed copying {name}: {e}")
 
     # Copy dir2 → dir1
     for name in to_copy_2_to_1:
         try:
-            print(f"📄 {name}  (Folder2 ➜ Folder1)")
+            print(f"{name}  (Folder2 ➜ Folder1)")
             shutil.copy2(dir2 / name, dir1 / name)
             copied_count += 1
         except Exception as e:
             print(f"⚠️ Failed copying {name}: {e}")
 
-    print(f"\n✅ Two-way sync complete! {copied_count} file(s) synced.")
+    print(f"\nTwo-way sync complete! {copied_count} file(s) synced.")
 
 
-if __name__ == "__main__":
+def initiate_sync():
     print("SMART TWO-WAY SYNC")
     folder1 = input("Enter first folder path (default = current directory): ").strip()
     folder2 = input("Enter second folder path: ").strip()

@@ -18,7 +18,7 @@ def get_files(directory):
         sys.exit(1)
 
 
-def main():
+def initiate_purge_matches():
     cwd = input("[Deletes Here] From where to delete: ").strip()
     other_dir = input("[Checks Here] From where to check : ").strip()
 
@@ -33,11 +33,11 @@ def main():
     files_to_delete = cwd_files.intersection(other_files)
 
     print("\n===== SUMMARY =====")
-    print(f"Current Working Directory: {cwd}")
-    print(f"Other Directory: {other_dir}")
-    print(f"Total files in CWD: {len(cwd_files)}")
-    print(f"Total files in Other Directory: {len(other_files)}")
-    print(f"Matching files (to be deleted): {len(files_to_delete)}")
+    print(f"Deletion Directory: {cwd}")
+    print(f"Refrence Directory: {other_dir}")
+    print(f"Total files in Target: {len(cwd_files)}")
+    print(f"Total files in Refrence: {len(other_files)}")
+    print(f"Matching files [to be deleted in Target]: {len(files_to_delete)}")
 
     if files_to_delete:
         print("\nFiles that will be deleted:")
@@ -61,7 +61,3 @@ def main():
             print("Operation cancelled.")
     else:
         print("No matching files found. Nothing to delete.")
-
-
-if __name__ == "__main__":
-    main()
