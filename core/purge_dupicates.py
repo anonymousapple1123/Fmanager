@@ -118,7 +118,7 @@ def present_and_delete(folder, numbered, ext_groups):
     print("\nDone!")
 
 
-def main():
+def initiate_remove_duplicate():
     folder = input("Enter folder path to scan: ").strip()
     if not os.path.isdir(folder):
         print("Invalid folder.")
@@ -126,7 +126,3 @@ def main():
 
     numbered, ext_groups = find_duplicates(folder)
     present_and_delete(folder, numbered, ext_groups)
-
-
-if __name__ == "__main__":
-    main()

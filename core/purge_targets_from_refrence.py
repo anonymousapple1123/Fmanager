@@ -19,8 +19,8 @@ def get_files(directory):
 
 
 def main():
-    cwd = os.getcwd()
-    other_dir = input("Enter the path of the other directory: ").strip()
+    cwd = input("[Deletes Here] From where to delete: ").strip()
+    other_dir = input("[Checks Here] From where to check : ").strip()
 
     if not os.path.isdir(other_dir):
         print("Invalid directory path.")
