@@ -1,6 +1,11 @@
 import logging
 
-from core import rename
+from core import (
+    purge_dupicates,
+    purge_substring,
+    purge_targets_from_refrence,
+    sync_dirs,
+)
 from logger_conf import setup_logging
 
 setup_logging()
@@ -20,10 +25,13 @@ def input_user_choice():
 
 def control_panel():
     print(
-        "\n\n============================================================================\n"
+        "\n\n============================================================================"
     )
     print("Choose the appropriate options:")
     print("1. Remove a substring from files.")
+    print("2. Remove all duplicates")
+    print("3. Sync Folders")
+    print("4. Remove duplicates from other folder.")
     print(
         "_____________________________________________________________________________"
     )
@@ -34,7 +42,15 @@ def control_panel():
 
     match choice:
         case 1:
-            rename.rename_files(input("Enter Substring :"))
+            purge_substring.rename_files(
+                input("Enter Substring to remove :")
+            )  # could have been done gracefully :\
+        case 2:
+            purge_dupicates.initiate_remove_duplicate()
+        case 3:
+            sync_dirs.initiate_sync()
+        case 4:
+            purge_targets_from_refrence.initiate_purge_matches()
         case _:
             print("Exiting...")
             exit()
