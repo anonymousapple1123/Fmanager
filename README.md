@@ -24,5 +24,5 @@ Lets say I frequently download videos, files, images on my phone, pc, and other 
 I wish I had something that does all the syncing for me FOR THAT PARTICULAR FOLDER, bulk rename them, everything done privately on my system, 
 no cloud needed, no common network required, need physical connection, Its something I need to do once in 1 or 2 months.
 I don't know whether there exist any tool for it. So I made my own.
-Currently this tool does all I need, good enough. So further updates are based on others users requirement.
+Currently this tool does all I need, good enough. So further updates are based on other user's requirements.
 
